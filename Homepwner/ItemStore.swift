@@ -7,7 +7,7 @@ import Foundation
 class ItemStore {
     
     var allItems: [Item] = []
-    let itemArchiveURL: URL = {
+    let itemArchiveURL: URL = { //Contruyendo URL para lectura de archivo en sistema operativo
         let documentsDirectories =
             FileManager.default.urls(for: .documentDirectory,
                                      in: .userDomainMask)
@@ -15,6 +15,7 @@ class ItemStore {
         return documentDirectory.appendingPathComponent("items.archive")
     }()
     
+    //Inicializador para hacer la carga de los elementos.
     init() {
         if let archivedItems =
             NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path) as? [Item] {
@@ -51,6 +52,7 @@ class ItemStore {
         }
     }
     
+    //Metodo para guardar los cambios existentes en base a mi url
     func saveChanges() -> Bool {
         print("Saving items to: \(itemArchiveURL.path)")
         return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path)

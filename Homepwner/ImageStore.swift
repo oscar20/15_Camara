@@ -8,6 +8,7 @@ class ImageStore {
     
     let cache = NSCache<NSString, UIImage>()
     
+    //metodo para guardar las imagenes en la carpeta de Documents   
     func imageURL(forKey key: String) -> URL {
         
         let documentsDirectories =

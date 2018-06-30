@@ -1,9 +1,11 @@
 //Ejercicio Camara
 // Almazan Lora Oscar
 
+//Se agregará ejercicio de save data.
+
 import Foundation
 
-class Item: NSObject, NSCoding {
+class Item: NSObject, NSCoding { //Se agrega protocolo NSCoding
     
     var name: String
     var valueInDollars: Int
@@ -43,6 +45,7 @@ class Item: NSObject, NSCoding {
         }
     }
     
+    //Implementacion de inicializador.
     required init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "name") as! String
         dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
@@ -54,12 +57,11 @@ class Item: NSObject, NSCoding {
         super.init()
     }
     
-    func encode(with aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) { //Datos que se van a guardar
         aCoder.encode(name, forKey: "name")
         aCoder.encode(dateCreated, forKey: "dateCreated")
         aCoder.encode(itemKey, forKey: "itemKey")
         aCoder.encode(serialNumber, forKey: "serialNumber")
-        
         aCoder.encode(valueInDollars, forKey: "valueInDollars")
     }
 
