@@ -1,6 +1,6 @@
-//
-//  Copyright © 2015 Big Nerd Ranch
-//
+//Ejercicio Camara
+// Almazan Lora Oscar
+
 
 import Foundation
 

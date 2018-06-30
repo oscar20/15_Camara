@@ -1,6 +1,6 @@
-//
-//  Copyright © 2015 Big Nerd Ranch
-//
+//Ejercicio Camara
+// Almazan Lora Oscar
+
 
 import UIKit
 
@@ -11,7 +11,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: UIImageView! //Se agrega outlet para la imagen
     
     var item: Item! {
         didSet {
@@ -20,12 +20,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     }
     var imageStore: ImageStore!
     
-    @IBAction func takePicture(_ sender: UIBarButtonItem) {
+    @IBAction func takePicture(_ sender: UIBarButtonItem) { //Cuando doy click en camara ejecuto este metodo
         
         let imagePicker = UIImagePickerController()
         
-        // If the device has a camera, take a picture, otherwise,
-        // just pick from photo library
+        //Verificar si el dispositivo tiene camara, si no utilizo la libreria
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
         } else {
